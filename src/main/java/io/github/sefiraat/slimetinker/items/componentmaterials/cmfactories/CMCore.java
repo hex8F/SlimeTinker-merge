@@ -1707,49 +1707,6 @@ public final class CMCore {
                                         null,
                                         null)
                         ));
-        map.put(IDStrings.BOOMERITE,
-                new ComponentMaterial
-                        (
-                                new CMIdentity(IDStrings.BOOMERITE, Materials.INGOT_CAST_BOOMERITE, SkullTextures.ALLOY_PURPLE, "#d94c00"),
-                                Arrays.asList(
-                                        map.get(IDStrings.REINFORCED).getLiquidItemStack(1),
-                                        map.get(IDStrings.CORBRONZE).getLiquidItemStack(1),
-                                        map.get(IDStrings.HARD).getLiquidItemStack(1),
-                                        map.get(IDStrings.COPPER).getLiquidItemStack(5)
-                                        ),
-                                new CMToolMakeup(true, false, false, true, false, false),
-                                new CMForms(
-                                    Materials.NUGGET_CAST_BOOMERITE.getItemId(),
-                                        Materials.INGOT_CAST_BOOMERITE.getItemId(),
-                                        Materials.BLOCK_CAST_BOOMERITE.getItemId(),
-                                    null,
-                                    null,
-                                    null,
-                                    null,
-                                    null,
-                                    null,
-                                    null
-                                ),
-                                new CMTraits(
-                                        IDStrings.BOOMERITE,
-                                        new CMTrait(
-                                                CMTraits.PROP_HEAD,
-                                                SupportedPluginsManager.CORE_NOTE,
-                                                "Ladder Simulator™",
-                                                "Spawns ladders on right click."
-                                        ),
-                                        null,
-                                        null,
-                                        new CMTrait(
-                                                CMTraits.PROP_PLATES,
-                                                SupportedPluginsManager.CORE_NOTE,
-                                                "Go Boomer",
-                                                "Warning... things will go boom..."
-                                        ),
-                                        null,
-                                        null)
-                        ));
-
         setupToolConsumers();
         setupArmourConsumers();
 
@@ -1790,7 +1747,6 @@ public final class CMCore {
         map.get(IDStrings.SOLDER).addEvent(TraitEventType.TICK, TraitPartType.HEAD, TickEvents::headSolder);                                // Hidden - Tick
         map.get(IDStrings.FERROSILICON).addEvent(TraitEventType.PLAYER_DAMAGED, TraitPartType.HEAD, PlayerDamagedEvents::headFerrosilicon); // Hydrogen
         map.get(IDStrings.BRONZE).addEvent(TraitEventType.TICK, TraitPartType.ROD, TickEvents::rodBronze);                                  // Ingheights
-        map.get(IDStrings.BOOMERITE).addEvent(TraitEventType.RIGHT_CLICK, TraitPartType.HEAD, RightClickEvents::headBoomerite);             // Ladder Simulator™
         map.get(IDStrings.LEAD).addEvent(TraitEventType.TICK, TraitPartType.ROD, TickEvents::rodLead);                                      // Leech
         map.get(IDStrings.REDSTONE_ALLOY).addEvent(TraitEventType.ENTITY_DAMAGED, TraitPartType.ROD, EntityDamageEvents::rodRedstoneAlloy); // Lightning Rod
         map.get(IDStrings.STEEL).addEvent(TraitEventType.TICK, TraitPartType.ROD, TickEvents::rodSteel);                                    // Lightweight
@@ -1855,8 +1811,7 @@ public final class CMCore {
         map.get(IDStrings.BRONZE).addEvent(TraitEventType.BLOCK_BREAK, TraitPartType.PLATE, BlockBreakEvents::plateBronze);                 // Farmer
         map.get(IDStrings.ALUMINUM).addEvent(TraitEventType.PLAYER_DAMAGED, TraitPartType.PLATE, PlayerDamagedEvents::plateAluminum);       // Foil 50% damage
         map.get(IDStrings.ALUMINUM).addEvent(TraitEventType.TICK, TraitPartType.PLATE, TickEvents::plateAluminum);                          // Foil +1 speed
-                                                                                                                                            // Fused
-        map.get(IDStrings.BOOMERITE).addEvent(TraitEventType.TICK, TraitPartType.PLATE, TickEvents::plateBoomerite);                        // Go Boomer
+                                                                                                                                            // Fused                      
         map.get(IDStrings.VINE).addEvent(TraitEventType.TICK, TraitPartType.GAMBESON, TickEvents::gambesonVine);                            // Growth
         map.get(IDStrings.STEEL).addEvent(TraitEventType.PLAYER_DAMAGED, TraitPartType.PLATE, PlayerDamagedEvents::plateSteel);             // Hardy
         map.get(IDStrings.BILLON).addEvent(TraitEventType.PLAYER_DAMAGED, TraitPartType.LINKS, PlayerDamagedEvents::linksBillon);           // Heat Conductor

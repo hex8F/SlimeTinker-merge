@@ -187,22 +187,4 @@ public final class RightClickEvents {
         PersistentDataAPI.setInt(im, k, amount);
         i.setItemMeta(im);
     }
-
-    public static void headBoomerite(EventFriend friend) {
-        Player player = friend.getPlayer();
-        BlockFace blockFace = BlockUtils.getTargetedBlockFace(player);
-        if (blockFace != null && blockFace != BlockFace.UP && blockFace != BlockFace.DOWN) {
-            Block target = player.getTargetBlock(null, 5);
-            if (target.getType() != Material.AIR) {
-                Block place = target.getRelative(blockFace);
-                if (place.getType() == Material.AIR && SlimefunPlugin.getProtectionManager().hasPermission(player, place, ProtectableAction.PLACE_BLOCK)) {
-                    place.setType(Material.LADDER);
-                    Directional directional = (Directional) place.getBlockData();
-                    directional.setFacing(blockFace);
-                    place.setBlockData(directional);
-                }
-            }
-        }
-
-    }
 }

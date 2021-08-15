@@ -752,13 +752,6 @@ public final class TickEvents {
         friend.getPlayer().setFireTicks(SlimeTinker.RUNNABLE_TICK_RATE + 5);
     }
 
-    public static void plateBoomerite(EventFriend friend) {
-        Player p = friend.getPlayer();
-        TNTPrimed tnt = (TNTPrimed) p.getWorld().spawnEntity(p.getLocation(), EntityType.PRIMED_TNT);
-        tnt.setSource(friend.getPlayer());
-        tnt.setVelocity(new Vector(p.getLocation().getDirection().getX(), 1, p.getLocation().getDirection().getZ()));
-    }
-
     public static void rodSteel(EventFriend friend) {
         friend.incrementItemExpMod(0.5);
         increaseEffect(PotionEffectType.SPEED, friend.getPotionEffects());
